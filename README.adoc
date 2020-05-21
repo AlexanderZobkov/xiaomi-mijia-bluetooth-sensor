@@ -1,0 +1,17 @@
+= Xiaomi Mijia bluetooth temperature/humidity sensor
+
+https://github.com/mspider65/Xiaomi-Mijia-Bluetooth-Temperature-and-Humidity-Sensor/blob/master/SensorProtocol.html
+
+== Usage
+
+. Start scanning for BLE devices in passive mode
++
+```bash
+hciconfig hci0 up
+hcitool lescan --passive --duplicates
+```
+
+. Start the collector specifying MAC address(es) of sensors to monitor
+```bash
+hcidump -R | ./xiaomi-mijia-bluetooth-sensor 582D3430247C 362D34303089
+```

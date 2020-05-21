@@ -1,0 +1,30 @@
+plugins {
+    id 'groovy'
+    id 'application'
+    id "ru.vyarus.quality" version "4.3.0"
+}
+
+group 'com.github.AlexanderZobkov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.5.1'
+    compile 'org.apache.commons:commons-lang3:3.10'
+}
+
+tasks.run {
+    standardInput = new File("src/test/resources/hcidump.out").newInputStream()
+    args '582D3430247C'
+}
+
+application {
+   mainClassName ='MijiaCollector'
+}
+
+quality {
+    exclude '**/*.java' // Exclude sources that were taken from other projects.
+}
