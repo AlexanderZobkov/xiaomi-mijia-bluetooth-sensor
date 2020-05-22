@@ -12,6 +12,20 @@ hcitool lescan --passive --duplicates
 ```
 
 . Start the collector specifying MAC address(es) of sensors to monitor
++
 ```bash
 hcidump -R | ./xiaomi-mijia-bluetooth-sensor 582D3430247C 362D34303089
+```
+The following is example output:
++
+```bash
+{"time":"2020-05-21T06:51:24.450Z","humidity":34.3,"temperature":22.1,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:26.447Z","temperature":22.1,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:28.454Z","humidity":34.2,"temperature":22.1,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:34.465Z","humidity":34.1,"temperature":22.0,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:36.465Z","humidity":34.0,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:38.467Z","batteryLevel":31.0,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:40.475Z","humidity":34.2,"temperature":22.0,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:42.483Z","humidity":34.1,"temperature":22.0,"mac":"582D3430247C"}
+{"time":"2020-05-21T06:51:44.481Z","humidity":34.1,"temperature":22.1,"mac":"582D3430247C"}
 ```
