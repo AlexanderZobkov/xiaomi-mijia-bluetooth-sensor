@@ -1,6 +1,7 @@
-
 import java.util.List;
 import org.apache.commons.lang3.ArrayUtils;
+
+// https://github.com/Scrin/RuuviCollector/blob/master/src/main/java/fi/tkgwf/ruuvi/bean/HCIData.java
 
 /**
  * Parsed data from hcidump

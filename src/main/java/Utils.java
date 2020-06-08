@@ -1,4 +1,5 @@
-// CHECKSTYLE:OFF
+// Taken from https://github.com/Scrin/RuuviCollector/blob/master/src/main/java/fi/tkgwf/ruuvi/utils/Utils.java
+
 public abstract class Utils {
 
     /**

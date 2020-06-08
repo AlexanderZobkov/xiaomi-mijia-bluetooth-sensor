@@ -1,6 +1,7 @@
-// CHECKSTYLE:OFF
 import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
+
+// Taken from https://github.com/Scrin/RuuviCollector/blob/master/src/main/java/fi/tkgwf/ruuvi/utils/HCIParser.java
 
 /**
  * This class is capable of parsing the raw format dump from hcidump (output of
