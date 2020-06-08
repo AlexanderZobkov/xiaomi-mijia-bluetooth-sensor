@@ -4,7 +4,7 @@ plugins {
     id "ru.vyarus.quality" version "4.3.0"
 }
 
-group 'com.github.AlexanderZobkov'
+group 'com.github.alexander_zobkov'
 version '1.0-SNAPSHOT'
 
 repositories {
