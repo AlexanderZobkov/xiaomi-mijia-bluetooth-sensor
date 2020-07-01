@@ -92,3 +92,4 @@ image::./tick/grafana-dashboard-screenshot.png[]
 - https://manned.org/hcidump/bdb92bdc
 - https://gitlab.com/jtaimisto/bluewalker
 - https://github.com/sidddy/flora/issues/8
+- https://www.silabs.com/community/wireless/bluetooth/knowledge-base.entry.html/2017/02/10/bluetooth_advertisin-hGsf
