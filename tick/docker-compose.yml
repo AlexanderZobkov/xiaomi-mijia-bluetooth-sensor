@@ -4,10 +4,11 @@ services:
     image: telegraf:latest
     volumes:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
-      - ${SENSOR_METRICS_FILE_PATH}:/var/tmp/metrics.json:ro
     depends_on:
       - influxdb
       - grafana
+    ports:
+      - 8094:8094
     environment:
       INFLUXDB_URL: http://influxdb:8086
     networks:
@@ -22,7 +23,7 @@ services:
     networks:
       - influxdb_net
   influxdb:
-    image: influxdb
+    image: influxdb:1.8
     container_name: influxdb
     ports:
       - 8086:8086
