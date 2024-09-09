@@ -1,7 +1,7 @@
 plugins {
     id 'groovy'
     id 'application'
-    id "ru.vyarus.quality" version "4.3.0"
+    id "ru.vyarus.quality" version "5.0.0"
 }
 
 group 'com.github.alexander_zobkov'
@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.5.1'
-    compile 'org.apache.commons:commons-lang3:3.10'
+    implementation 'org.apache.groovy:groovy-all:4.0.22'
+    implementation 'org.apache.commons:commons-lang3:3.10'
 }
 
 tasks.run {
@@ -27,4 +27,6 @@ application {
 
 quality {
     exclude '**/*.java' // Exclude sources that were taken from other projects.
+    checkstyle = false  // Disable due to error: Must specify at least one of 'file' or nested 'fileset' or 'path'.
 }
+

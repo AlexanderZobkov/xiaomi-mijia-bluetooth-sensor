@@ -55,7 +55,7 @@ class Measurement {
      * @return JSON object in string form.
      */
     String asJson() {
-        generator.toJson(this)
+        return generator.toJson(this)
     }
 
     private static short decodeValue(byte[] data) {
