@@ -21,6 +21,7 @@
         <exclude name="JUnit4TestShouldUseBeforeAnnotation"/>
         <exclude name="JUnit4TestShouldUseAfterAnnotation"/>
         <exclude name="JUnit4TestShouldUseTestAnnotation"/>
+        <exclude name="UnusedImports"/> <!-- deprecated in favour of UnnecessaryImport -->
     </rule>
 
 
@@ -33,6 +34,8 @@
         <exclude name="CommentDefaultAccessModifier"/>
         <exclude name="ConfusingTernary"/>
         <exclude name="ClassNamingConventions"/>
+        <exclude name="DontImportJavaLang"/> <!-- deprecated in favour of UnnecessaryImport -->
+        <exclude name="DuplicateImports"/> <!-- deprecated in favour of UnnecessaryImport -->
         <exclude name="LocalHomeNamingConvention"/> <!-- earlier j2ee group-->
         <exclude name="LocalInterfaceSessionNamingConvention"/> <!-- earlier j2ee group-->
         <exclude name="LocalVariableCouldBeFinal"/>
@@ -72,6 +75,11 @@
             <property name="problemDepth" value="4"/>
         </properties>
     </rule>
+    <rule ref="category/java/design.xml/CognitiveComplexity">
+        <properties>
+            <property name="reportLevel" value="21"/>
+        </properties>
+    </rule>
     <rule ref="category/java/design.xml/CyclomaticComplexity">
         <properties>
             <property name="cycloOptions" value="ignoreBooleanPaths"/>
@@ -81,8 +89,8 @@
     </rule>
     <rule ref="category/java/design.xml/NcssCount">
         <properties>
-            <property name="methodReportLevel" value="30"/>
-            <property name="classReportLevel" value="300"/>
+            <property name="methodReportLevel" value="40"/>
+            <property name="classReportLevel" value="500"/>
         </properties>
     </rule>
     <rule ref="category/java/design.xml/NPathComplexity">
@@ -106,20 +114,25 @@
 
     <!-- Error prone (https://pmd.github.io/pmd-6.0.1/pmd_rules_java_errorprone.html) -->
     <rule ref="category/java/errorprone.xml">
+        <exclude name="AssignmentInOperand"/>
+        <exclude name="AvoidAccessibilityAlteration"/>
         <exclude name="AvoidCatchingThrowable"/>
-        <exclude name="BeanMembersShouldSerialize"/>
         <exclude name="DataflowAnomalyAnalysis"/>
-        <exclude name="DoNotCallSystemExit"/> <!-- earlier j2ee group-->
+        <exclude name="DoNotTerminateVM"/> <!-- earlier j2ee group; before 6.29 DoNotCallSystemExit-->
         <exclude name="EmptyFinalizer"/>
         <exclude name="FinalizeOnlyCallsSuperFinalize"/>
         <exclude name="FinalizeDoesNotCallSuperFinalize"/>
         <exclude name="JUnitSpelling"/>
         <exclude name="JUnitStaticSuite"/>
+        <exclude name="ImportFromSamePackage"/> <!-- deprecated in favour of UnnecessaryImport -->
         <exclude name="InvalidLogMessageFormat"/>
         <exclude name="LoggerIsNotStaticFinal"/>
         <exclude name="MissingSerialVersionUID"/>
+        <exclude name="NonSerializableClass"/>
         <exclude name="NullAssignment"/> <!-- disabled due to false positive for initialization with ternary operator -->
+        <exclude name="ReturnEmptyArrayRatherThanNull"/>
         <exclude name="StaticEJBFieldShouldBeFinal"/> <!-- earlier j2ee group-->
+        <exclude name="TestClassWithoutTestCases"/>
         <exclude name="UseCorrectExceptionLogging"/>
         <exclude name="UseLocaleWithCaseConversions"/>
         <exclude name="UseProperClassLoader"/> <!-- earlier j2ee group-->
@@ -144,13 +157,17 @@
 
     <!-- Error prone (https://pmd.github.io/pmd-6.0.1/pmd_rules_java_multithreading.html) -->
     <rule ref="category/java/multithreading.xml">
+        <exclude name="AvoidUsingVolatile"/>
         <exclude name="DoNotUseThreads"/> <!-- earlier j2ee group-->
         <exclude name="UseConcurrentHashMap"/>
     </rule>
 
 
     <!-- Performance (https://pmd.github.io/pmd-6.0.1/pmd_rules_java_performance.html) -->
-    <rule ref="category/java/performance.xml"/>
+    <rule ref="category/java/performance.xml">
+        <!-- Mostly annoying because reacts on all instantiations, including unmovable -->
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+    </rule>
 
 
     <!-- Security (no rules) -->

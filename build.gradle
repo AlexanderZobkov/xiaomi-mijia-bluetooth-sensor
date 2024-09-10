@@ -22,11 +22,12 @@ tasks.run {
 }
 
 application {
-   mainClassName ='MijiaCollector'
+   mainClass ='MijiaCollector'
 }
 
 quality {
-    exclude '**/*.java' // Exclude sources that were taken from other projects.
-    checkstyle = false  // Disable due to error: Must specify at least one of 'file' or nested 'fileset' or 'path'.
+    checkstyle = false // Disable as java sources are taken from other projects.
+    pmd = false // Disable as java sources are taken from other projects.
+    cpd = false // Disable as java sources are taken from other projects.
 }
 
