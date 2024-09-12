@@ -7,7 +7,7 @@ https://github.com/mspider65/Xiaomi-Mijia-Bluetooth-Temperature-and-Humidity-Sen
 
 == Dependencies
 
-- openjdk-11-jdk
+- openjdk-17-jdk
 - bluez
 - bluez-hcidump
 
@@ -55,19 +55,19 @@ The following is example output:
 
 == Sensor data visualisation with Grafana
 
-. Start collecting data from a sensor dumping measurements into file
-+
-```
-hcidump -R | ./xiaomi-mijia-bluetooth-sensor 582D3430247C 362D34303089 ... | tee -a /tmp/metrics.json
-```
-
 . Start several docker containers with docker-compose that will run instances of: Telegraf, InfluxDB and Grafana.
 +
 ```bash
-SENSOR_METRICS_FILE_PATH=/tmp/metrics.json docker-compose up
+docker-compose up
 ```
 NOTE: `SENSOR_METRICS_FILE_PATH` should point to the file where metrics from the application are dumped.
 This is the file which will be tailed by Telegrag.
+
+. Start collecting data from a sensor dumping measurements into file
++
+```
+hcidump -R | ./xiaomi-mijia-bluetooth-sensor 582D3430247C 362D34303089 ... | socat - TCP4:localhost:8094
+```
 
 . In Grafana, add a datasource of type InfluxDB pointing to database created by telegraf
 
