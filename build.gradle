@@ -1,7 +1,7 @@
 plugins {
     id 'groovy'
     id 'application'
-    id "ru.vyarus.quality" version "5.0.0"
+    id "ru.vyarus.quality" version "6.0.1"
 }
 
 group 'com.github.alexander_zobkov'
